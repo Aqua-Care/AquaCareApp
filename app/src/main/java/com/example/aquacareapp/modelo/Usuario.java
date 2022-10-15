@@ -1,5 +1,8 @@
 package com.example.aquacareapp.modelo;
 
+import com.example.aquacareapp.config.ConfiguracaoFirebase;
+import com.google.firebase.database.DatabaseReference;
+
 public class Usuario {
 
     private String id;
@@ -55,6 +58,8 @@ public class Usuario {
 
 
     public void salvarDados() {
-    }
 
+        DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
+        firebase.child("Usuarios").child(this.id).setValue(this);
+    }
 }
