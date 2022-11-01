@@ -4,25 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgapp"
     tools:context=".TourActivity">
 
-    <Button
-        android:id="@+id/btLogarTour"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
-        android:text="Logar"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="161dp" />
-
-    <Button
-        android:id="@+id/btCadastrarTour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Cadastrar"
+        android:orientation="vertical"
+        android:padding="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btLogarTour"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="143dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.84">
+
+        <Button
+            android:id="@+id/btLogarTour"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:clickable="true"
+            android:text="Logar"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:id="@+id/btCadastrarTour"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:text="Cadastrar"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:orientation="vertical"
+        android:padding="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.214">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AquaCare"
+            android:textSize="45sp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Gay Viado Baitola"
+            android:textSize="20sp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

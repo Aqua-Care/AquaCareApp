@@ -4,64 +4,151 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2196F3"
     tools:context=".LoginActivity">
 
-    <Button
-        android:id="@+id/btLogarLogin"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="155dp"
-        android:layout_marginBottom="210dp"
-        android:text="Entrar"
+        android:layout_marginBottom="248dp"
+        android:orientation="vertical"
+        android:padding="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btLogarLogin"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:text="Entrar"
+            android:textColor="@color/black" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20sp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="Esqueceu a senha?"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.852">
+
+        <EditText
+            android:id="@+id/etEmailLogin"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <EditText
+            android:id="@+id/etSenhaLogin"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Senha"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="250dp"
+        android:text="Login"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/btCadastrarLogin"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="158dp"
-        android:layout_marginBottom="113dp"
-        android:text="Cadastrar"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:padding="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/googleg_standard_color_18" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:text=" Entre com o Google"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:padding="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btLogarLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.842">
 
-    <EditText
-        android:id="@+id/etEmailLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="103dp"
-        android:layout_marginBottom="313dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/btLogarLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Não tem uma conta?" />
 
-    <EditText
-        android:id="@+id/etSenhaLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="163dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/btLogarLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailLogin"
-        app:layout_constraintVertical_bias="1.0" />
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:text=" Crie agora!"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
