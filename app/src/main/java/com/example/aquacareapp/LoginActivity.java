@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aquacareapp.modelo.Usuario;
@@ -20,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
 
     private Button btLogarLogin;
-    private Button btCadastrarLogin;
+    private TextView btCadastrarLogin;
     private EditText etEmailLogin;
     private EditText etSenhaLogin;
     private FirebaseAuth mAuth;
@@ -33,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         btLogarLogin = findViewById(R.id.btLogarLogin);
-        btCadastrarLogin = findViewById(R.id.btCadastrarLogin);
+        btCadastrarLogin = findViewById(R.id.textViewCadastrarLogin);
         etEmailLogin = findViewById(R.id.etEmailLogin);
         etSenhaLogin = findViewById(R.id.etSenhaLogin);
         mAuth = FirebaseAuth.getInstance();

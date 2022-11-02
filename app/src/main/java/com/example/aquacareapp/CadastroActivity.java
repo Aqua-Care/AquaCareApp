@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aquacareapp.modelo.Usuario;
@@ -20,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class CadastroActivity extends AppCompatActivity {
 
     private Button btCadastrarCadastro;
-    private Button btLogarCadastro;
+    private TextView btLogarCadastro;
     private EditText etUsuarioCadastro;
     private EditText etEmailCadastro;
     private EditText etTelefoneCadastro;
@@ -36,7 +37,7 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
         btCadastrarCadastro = findViewById(R.id.btCadastrarCadastro);
-        btLogarCadastro = findViewById(R.id.btLogarCadastro);
+        btLogarCadastro = findViewById(R.id.textViewLogarCadastro);
         etUsuarioCadastro = findViewById(R.id.etUsuarioCadastro);
         etEmailCadastro = findViewById(R.id.etEmailCadastro);
         etTelefoneCadastro = findViewById(R.id.etTelefoneCadastro);
