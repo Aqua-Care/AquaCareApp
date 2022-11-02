@@ -101,10 +101,15 @@ public class CadastroActivity extends AppCompatActivity {
         if (etUsuarioCadastro.getText().toString() == "" || etEmailCadastro.getText().toString() == "" || etSenhaCadastro.getText().toString() == "" || etTelefoneCadastro.getText().toString() == ""){
 
             Toast.makeText(CadastroActivity.this, "Você deve preencher todos os dados", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(CadastroActivity.this, CadastroActivity.class));
         }
-        /*if (etSenhaCadastro.getText().toString() != etRepetirSenhaCadastro.getText().toString()){
+        /*else{
+
+        }
+        if (etSenhaCadastro.getText().toString() != etRepetirSenhaCadastro.getText().toString()){
 
             Toast.makeText(CadastroActivity.this, "Senha não compatível", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(CadastroActivity.this, CadastroActivity.class));
         }*/
         else {
 
