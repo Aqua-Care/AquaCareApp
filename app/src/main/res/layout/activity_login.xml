@@ -4,22 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2196F3"
+    android:background="#EDEDED"
     tools:context=".LoginActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="248dp"
         android:orientation="vertical"
         android:padding="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.34"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
+        app:layout_constraintVertical_bias="0.136">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btLogarLogin"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
@@ -36,8 +37,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:text="Esqueceu a senha?"
             android:gravity="center"
+            android:text="Esqueceu a senha?"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -48,20 +49,25 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="7dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.852">
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.179">
 
         <EditText
             android:id="@+id/etEmailLogin"
             android:layout_width="350dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_email"
+            android:drawablePadding="12dp"
             android:ems="10"
             android:hint="Email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -70,10 +76,15 @@
         <EditText
             android:id="@+id/etSenhaLogin"
             android:layout_width="350dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_lock"
+            android:drawablePadding="12dp"
             android:ems="10"
             android:hint="Senha"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
     </LinearLayout>
 
     <TextView
@@ -81,32 +92,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="32dp"
         android:text="Login"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
+        android:id="@+id/linearLayout10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         android:padding="7dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.349">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="3dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/googleg_standard_color_18" />
 
@@ -114,9 +129,10 @@
             android:id="@+id/textView10"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:layout_weight="1"
             android:clickable="true"
-            android:text=" Entre com o Google"
+            android:text="Entre com o Google"
             android:textAlignment="center"
             android:textSize="14sp" />
     </LinearLayout>
@@ -125,14 +141,12 @@
         android:id="@+id/linearLayout9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:orientation="horizontal"
         android:padding="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintVertical_bias="0.842">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
 
         <TextView
             android:id="@+id/textView13"
@@ -150,5 +164,17 @@
             android:text=" Crie agora!"
             android:textStyle="bold" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/peixin_transparente" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
