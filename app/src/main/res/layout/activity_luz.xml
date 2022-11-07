@@ -7,11 +7,28 @@
     tools:context=".activity_luz">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:id="@+id/btOffLuz"
+        android:layout_width="210dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="312dp"
         android:background="@drawable/btn"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="419dp" />
+        android:text="OFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="100dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btOnLuz"
+        android:layout_width="177dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="226dp"
+        android:layout_marginEnd="162dp"
+        android:background="@drawable/btn"
+        android:text="ON"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
