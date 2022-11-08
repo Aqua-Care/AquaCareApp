@@ -1,13 +1,19 @@
 package com.example.aquacareapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.aquacareapp.config.ConfiguracaoFirebase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class activity_luz extends AppCompatActivity {
 
@@ -22,15 +28,15 @@ public class activity_luz extends AppCompatActivity {
         btOnLuz = findViewById(R.id.btOnLuz);
         btOffLuz = findViewById(R.id.btOffLuz);
 
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
 
 
         btOnLuz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                DatabaseReference Led = database.getReference("Led");
-                Led.setValue(1);
+                firebase.child("Luz").child("Estado").setValue("Ligado");
+                firebase.child("Luz").child("LED").setValue(1);
             }
         });
 
@@ -38,8 +44,8 @@ public class activity_luz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                DatabaseReference Led = database.getReference("Led");
-                Led.setValue(0);
+                firebase.child("Luz").child("Estado").setValue("Desligado");
+                firebase.child("Luz").child("LED").setValue(0);
             }
         });
     }
