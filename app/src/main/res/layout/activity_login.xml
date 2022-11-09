@@ -18,12 +18,12 @@
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
-        app:layout_constraintVertical_bias="0.136">
+        app:layout_constraintVertical_bias="0.38">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btLogarLogin"
             android:layout_width="350dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:background="@drawable/btn"
             android:text="Entrar"
             android:textColor="@color/black" />
@@ -39,6 +39,7 @@
             android:clickable="true"
             android:gravity="center"
             android:text="Esqueceu a senha?"
+            android:textColor="#615D5D"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -67,7 +68,9 @@
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:paddingStart="12dp"
-            android:paddingEnd="12dp" />
+            android:paddingEnd="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#A8A2A2" />
 
         <Space
             android:layout_width="match_parent"
@@ -84,7 +87,9 @@
             android:hint="Senha"
             android:inputType="textPassword"
             android:paddingStart="12dp"
-            android:paddingEnd="12dp" />
+            android:paddingEnd="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#A8A2A2" />
     </LinearLayout>
 
     <TextView
@@ -93,6 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Login"
+        android:textColor="#6D6D6C"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -103,10 +109,10 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
-        android:id="@+id/linearLayout10"
+        android:id="@+id/linearLayout9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
         android:padding="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -114,45 +120,15 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintVertical_bias="0.349">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="3dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/googleg_standard_color_18" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:text="Entre com o Google"
-            android:textAlignment="center"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="7dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Não tem uma conta?" />
+            android:text="Não tem uma conta?"
+            android:textColor="#615D5D" />
 
         <TextView
             android:id="@+id/textViewCadastrarLogin"
@@ -161,6 +137,7 @@
             android:layout_weight="1"
             android:clickable="true"
             android:text=" Crie agora!"
+            android:textColor="#615D5D"
             android:textStyle="bold" />
     </LinearLayout>
 

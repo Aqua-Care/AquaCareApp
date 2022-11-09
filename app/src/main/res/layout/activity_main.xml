@@ -52,7 +52,7 @@
         app:layout_constraintHorizontal_bias="0.981"
         app:layout_constraintStart_toEndOf="@+id/linearLayout2"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/ic_user" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"

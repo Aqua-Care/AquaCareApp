@@ -18,16 +18,16 @@
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.84">
+        app:layout_constraintVertical_bias="0.939">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btLogarTour"
             android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn"
+            android:layout_height="40dp"
+            android:background="@drawable/btn2"
             android:clickable="true"
             android:text="Logar"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="14sp" />
 
         <Space
@@ -37,10 +37,10 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btCadastrarTour"
             android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn"
+            android:layout_height="40dp"
+            android:background="@drawable/btn2"
             android:text="Cadastrar"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -56,15 +56,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214">
+        app:layout_constraintVertical_bias="0.156">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="AquaCare"
-            android:textSize="45sp"
             android:textColor="@color/white"
+            android:textSize="45sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -72,8 +72,8 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:text="Gay Viado Baitola"
+            android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>
 
