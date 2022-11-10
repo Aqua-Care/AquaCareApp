@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "917875500121",
+    "firebase_url": "https://aquacarebd-fa5c0-default-rtdb.firebaseio.com",
+    "project_id": "aquacarebd-fa5c0",
+    "storage_bucket": "aquacarebd-fa5c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917875500121:android:4d4facdc81d140beb2bd48",
+        "android_client_info": {
+          "package_name": "com.example.aquacareapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917875500121-g449vn5eviah0hl7aev031oqg31e44mm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCib82NkCyfwXVdczmLFSCfeDesJOI8a5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917875500121-g449vn5eviah0hl7aev031oqg31e44mm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

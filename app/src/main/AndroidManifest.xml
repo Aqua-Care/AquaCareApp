@@ -13,6 +13,14 @@
         android:theme="@style/Theme.AquaCareApp"
         tools:targetApi="31">
         <activity
+            android:name=".MainMain"
+            android:exported="false"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activity_luz"
             android:exported="false">
             <meta-data
