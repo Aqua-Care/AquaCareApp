@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,8 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView btCadastrarLogin;
     private EditText etEmailLogin;
     private EditText etSenhaLogin;
+
     private FirebaseAuth mAuth;
-    private Usuario u;
 
 
     @Override
@@ -37,17 +38,9 @@ public class LoginActivity extends AppCompatActivity {
         btCadastrarLogin = findViewById(R.id.textViewCadastrarLogin);
         etEmailLogin = findViewById(R.id.etEmailLogin);
         etSenhaLogin = findViewById(R.id.etSenhaLogin);
+
         mAuth = FirebaseAuth.getInstance();
 
-
-        btLogarLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                receberDados();
-                Logar();
-            }
-        });
 
         btCadastrarLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,45 +49,73 @@ public class LoginActivity extends AppCompatActivity {
                 TelaCadastro();
             }
         });
+
+        btLogarLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                LogarUsuario();
+            }
+        });
+    }
+
+    private void LogarUsuario() {
+
+        String emailLogin = etEmailLogin.getText().toString().trim();
+        String senhaLogin = etSenhaLogin.getText().toString().trim();
+
+
+        if (emailLogin.isEmpty()){
+
+            etEmailLogin.setError("Preencha o campo de Usuário!");
+            etEmailLogin.requestFocus();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(emailLogin).matches()){
+
+            etEmailLogin.setError("Email invalido!");
+            etEmailLogin.requestFocus();
+            return;
+        }
+
+        if (senhaLogin.isEmpty()){
+
+            etSenhaLogin.setError("Preencha o campo de Senha!");
+            etSenhaLogin.requestFocus();
+            return;
+        }
+
+
+        mAuth.signInWithEmailAndPassword(emailLogin, senhaLogin).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if (task.isSuccessful()){
+
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                    if (user.isEmailVerified()){
+
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    }
+                    else {
+
+                        user.sendEmailVerification();
+                        Toast.makeText(LoginActivity.this, "Cheque seu email para verificar sua conta!", Toast.LENGTH_LONG).show();
+                    }
+                }
+                else {
+
+                    Toast.makeText(LoginActivity.this, "Falha ao logar", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
 
     private void TelaCadastro() {
 
         startActivity(new Intent(this, CadastroActivity.class));
-    }
-
-
-    private void Logar() {
-
-        mAuth.signInWithEmailAndPassword(u.getEmail(), u.getSenha())
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        if (task.isSuccessful()) {
-
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                            Toast.makeText(LoginActivity.this, "Login realizado com sucesso", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(LoginActivity.this, MainMain.class));
-                        }
-                        else {
-
-                            Toast.makeText(LoginActivity.this, "Falha ao logar", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(LoginActivity.this, LoginActivity.class));
-                        }
-
-                    }
-                });
-    }
-
-
-    private void receberDados() {
-
-        u = new Usuario();
-
-        u.setEmail(etEmailLogin.getText().toString());
-        u.setSenha(etSenhaLogin.getText().toString());
     }
 }

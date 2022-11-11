@@ -1,22 +1,12 @@
 package com.example.aquacareapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.example.aquacareapp.config.ConfiguracaoFirebase;
-import com.example.aquacareapp.modelo.Usuario;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class activity_luz extends AppCompatActivity {
 
@@ -32,7 +22,7 @@ public class activity_luz extends AppCompatActivity {
         btOnLuz = findViewById(R.id.btOnLuz);
         btOffLuz = findViewById(R.id.btOffLuz);
 
-        final DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
+        /*final DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
 
 
         btOnLuz.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +45,6 @@ public class activity_luz extends AppCompatActivity {
                 firebase.child("Luz").child("Estado").setValue("Desligado");
                 firebase.child("Luz").child("LED").setValue(0);
             }
-        });
+        });*/
     }
 }

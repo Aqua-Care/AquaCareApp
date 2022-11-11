@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +19,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.regex.Pattern;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -27,8 +32,8 @@ public class CadastroActivity extends AppCompatActivity {
     private EditText etTelefoneCadastro;
     private EditText etSenhaCadastro;
     private EditText etRepetirSenhaCadastro;
+
     private FirebaseAuth mAuth;
-    private Usuario u;
 
 
     @Override
@@ -43,17 +48,9 @@ public class CadastroActivity extends AppCompatActivity {
         etTelefoneCadastro = findViewById(R.id.etTelefoneCadastro);
         etSenhaCadastro = findViewById(R.id.etSenhaCadastro);
         etRepetirSenhaCadastro = findViewById(R.id.etRepetirSenhaCadastro);
+
         mAuth = FirebaseAuth.getInstance();
 
-
-        btCadastrarCadastro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                capturarDados();
-                criarLogin();
-            }
-        });
 
         btLogarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,60 +59,122 @@ public class CadastroActivity extends AppCompatActivity {
                 TelaLogin();
             }
         });
+
+        btCadastrarCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                CadastrarUsuario();
+
+            }
+        });
+    }
+
+    private void CadastrarUsuario() {
+
+        String usuarioCadastro = etUsuarioCadastro.getText().toString().trim();
+        String emailCadastro = etEmailCadastro.getText().toString().trim();
+        String telefoneCadastro = etTelefoneCadastro.getText().toString().trim();
+        String senhaCadastro = etSenhaCadastro.getText().toString().trim();
+        String repetir_senhaCadastro = etRepetirSenhaCadastro.getText().toString().trim();
+
+
+        if (usuarioCadastro.isEmpty()){
+
+            etUsuarioCadastro.setError("Crie um usuário!");
+            etUsuarioCadastro.requestFocus();
+            return;
+        }
+
+        if (emailCadastro.isEmpty()){
+
+            etEmailCadastro.setError("Preencha o campo de Email!");
+            etEmailCadastro.requestFocus();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(emailCadastro).matches()){
+
+            etEmailCadastro.setError("Email invalido!");
+            etEmailCadastro.requestFocus();
+            return;
+        }
+
+        if (telefoneCadastro.isEmpty()){
+
+            etTelefoneCadastro.setError("Preencha o campo de Telefone!");
+            etTelefoneCadastro.requestFocus();
+            return;
+        }
+
+        if (senhaCadastro.isEmpty()){
+
+            etSenhaCadastro.setError("Preencha o campo de Senha!");
+            etSenhaCadastro.requestFocus();
+            return;
+        }
+
+        if (repetir_senhaCadastro.isEmpty()){
+
+            etRepetirSenhaCadastro.setError("Preencha o campo de Repetir Senha!");
+            etRepetirSenhaCadastro.requestFocus();
+            return;
+        }
+
+        if (senhaCadastro.length() < 6){
+
+            etSenhaCadastro.setError("Digite uma senha com mais de 6 dígitos!");
+            etSenhaCadastro.requestFocus();
+            return;
+        }
+
+        /*if (senhaCadastro == repetir_senhaCadastro) {
+
+            etRepetirSenhaCadastro.setError("Senhas não coincidem!");
+            etRepetirSenhaCadastro.requestFocus();
+            return;
+        }*/
+
+
+        mAuth.createUserWithEmailAndPassword(emailCadastro, senhaCadastro)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (task.isSuccessful()){
+
+                            Usuario user = new Usuario(usuarioCadastro, emailCadastro, telefoneCadastro, senhaCadastro);
+
+                            FirebaseDatabase.getInstance().getReference("Usuarios")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+
+                                            if (task.isSuccessful()){
+
+                                                Toast.makeText(CadastroActivity.this, "Usuário cadastrado", Toast.LENGTH_LONG).show();
+                                                startActivity(new Intent(CadastroActivity.this, LoginActivity.class));
+                                            }
+                                            else {
+
+                                                Toast.makeText(CadastroActivity.this, "Falha ao cadastrar", Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    });
+                            }
+                        else {
+
+                            Toast.makeText(CadastroActivity.this, "Falha ao cadastrar", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
     }
 
 
     private void TelaLogin() {
 
         startActivity(new Intent(this, LoginActivity.class));
-    }
-
-
-    private void criarLogin() {
-
-        mAuth.createUserWithEmailAndPassword(u.getEmail(), u.getSenha())
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        if (task.isSuccessful()){
-
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            u.setId(user.getUid());
-                            u.salvarDados();
-
-                            Toast.makeText(CadastroActivity.this, "Login criado com sucesso", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(CadastroActivity.this, LoginActivity.class));
-                        }
-                        else {
-
-                            Toast.makeText(CadastroActivity.this, "Error ao criar um login", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-    }
-
-
-    private void capturarDados() {
-
-        /*if (etSenhaCadastro.getText().toString() != etRepetirSenhaCadastro.getText().toString()){
-
-            Toast.makeText(CadastroActivity.this, "Senha não compatível", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(CadastroActivity.this, CadastroActivity.class));
-        }*/
-        if (etUsuarioCadastro.getText().toString() == "" || etEmailCadastro.getText().toString() == "" || etSenhaCadastro.getText().toString() == "" || etTelefoneCadastro.getText().toString() == ""){
-
-            Toast.makeText(CadastroActivity.this, "Você deve preencher todos os dados", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(CadastroActivity.this, CadastroActivity.class));
-        }
-        else {
-
-            u = new Usuario();
-
-            u.setUsuario(etUsuarioCadastro.getText().toString());
-            u.setEmail(etEmailCadastro.getText().toString());
-            u.setSenha(etSenhaCadastro.getText().toString());
-            u.setTelefone(etTelefoneCadastro.getText().toString());
-        }
     }
 }
