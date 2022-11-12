@@ -6,12 +6,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class activity_luz extends AppCompatActivity {
 
     private Button btOnLuz;
     private Button btOffLuz;
+
+    private FirebaseAuth mAuth;
+
 
 
     @Override
@@ -22,17 +27,15 @@ public class activity_luz extends AppCompatActivity {
         btOnLuz = findViewById(R.id.btOnLuz);
         btOffLuz = findViewById(R.id.btOffLuz);
 
-        /*final DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
+        mAuth = FirebaseAuth.getInstance();
 
 
         btOnLuz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //firebase.child("Usuarios").child("Luz").child("Estado").setValue("Ligado");
-                //firebase.child("Usuarios").child("Luz").child("LED").setValue(1);
-                firebase.child("Luz").child("Estado").setValue("Ligado");
-                firebase.child("Luz").child("LED").setValue(1);
+                FirebaseDatabase.getInstance().getReference("Usuarios")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("LED").setValue(1);
             }
         });
 
@@ -40,11 +43,9 @@ public class activity_luz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //firebase.child("Usuarios").child("Luz").child("Estado").setValue("Desligado");
-                //firebase.child("Usuarios").child("Luz").child("LED").setValue(0);
-                firebase.child("Luz").child("Estado").setValue("Desligado");
-                firebase.child("Luz").child("LED").setValue(0);
+                FirebaseDatabase.getInstance().getReference("Usuarios")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("LED").setValue(0);
             }
-        });*/
+        });
     }
 }

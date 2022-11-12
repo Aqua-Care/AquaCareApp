@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
+    private Button btLuzMain;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -56,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 return false;
+            }
+        });
+
+        btLuzMain = findViewById(R.id.btLuzMain);
+
+        btLuzMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(MainActivity.this, activity_luz.class));
             }
         });
     }
