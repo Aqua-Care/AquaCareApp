@@ -3,6 +3,7 @@ package com.example.aquacareapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -12,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.aquacareapp.modelo.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -22,7 +22,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
 
     private Button btLogarLogin;
-    private TextView btCadastrarLogin;
+    private TextView tvCadastrarLogin;
+    private TextView tvAlterarSenhaLogin;
     private EditText etEmailLogin;
     private EditText etSenhaLogin;
 
@@ -35,14 +36,15 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         btLogarLogin = findViewById(R.id.btLogarLogin);
-        btCadastrarLogin = findViewById(R.id.textViewCadastrarLogin);
+        tvCadastrarLogin = findViewById(R.id.tvCadastrarLogin);
+        tvAlterarSenhaLogin = findViewById(R.id.tvAlterarSenhaLogin);
         etEmailLogin = findViewById(R.id.etEmailLogin);
         etSenhaLogin = findViewById(R.id.etSenhaLogin);
 
         mAuth = FirebaseAuth.getInstance();
 
 
-        btCadastrarLogin.setOnClickListener(new View.OnClickListener() {
+        tvCadastrarLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -57,7 +59,22 @@ public class LoginActivity extends AppCompatActivity {
                 LogarUsuario();
             }
         });
+
+        tvAlterarSenhaLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                TelaAlterarSenha();
+            }
+        });
     }
+
+
+    private void TelaAlterarSenha() {
+
+        startActivity(new Intent(this, AlterarSenhaActivity.class));
+    }
+
 
     private void LogarUsuario() {
 

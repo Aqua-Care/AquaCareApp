@@ -33,7 +33,7 @@
             android:layout_height="20sp" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/tvAlterarSenhaLogin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -131,7 +131,7 @@
             android:textColor="#615D5D" />
 
         <TextView
-            android:id="@+id/textViewCadastrarLogin"
+            android:id="@+id/tvCadastrarLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
