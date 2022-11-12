@@ -35,7 +35,10 @@ public class activity_luz extends AppCompatActivity {
             public void onClick(View v) {
 
                 FirebaseDatabase.getInstance().getReference("Usuarios")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("LED").setValue(1);
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Luz").child("LED").setValue(1);
+
+                FirebaseDatabase.getInstance().getReference("Usuarios")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Luz").child("Estado").setValue("Ligado");
             }
         });
 
@@ -44,7 +47,10 @@ public class activity_luz extends AppCompatActivity {
             public void onClick(View v) {
 
                 FirebaseDatabase.getInstance().getReference("Usuarios")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("LED").setValue(0);
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Luz").child("LED").setValue(0);
+
+                FirebaseDatabase.getInstance().getReference("Usuarios")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Luz").child("Estado").setValue("Desligado");
             }
         });
     }
