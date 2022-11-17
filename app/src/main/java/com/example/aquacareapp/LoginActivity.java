@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getSupportActionBar().hide();
 
         btLogarLogin = findViewById(R.id.btLogarLogin);
         tvCadastrarLogin = findViewById(R.id.tvCadastrarLogin);
@@ -117,13 +121,11 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     }
                     else {
-
                         user.sendEmailVerification();
                         Toast.makeText(LoginActivity.this, "Cheque seu email para verificar sua conta!", Toast.LENGTH_LONG).show();
                     }
                 }
                 else {
-
                     Toast.makeText(LoginActivity.this, "Falha ao logar", Toast.LENGTH_LONG).show();
                 }
             }
@@ -132,7 +134,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void TelaCadastro() {
-
         startActivity(new Intent(this, CadastroActivity.class));
     }
 }
