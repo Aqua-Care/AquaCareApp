@@ -8,12 +8,18 @@
     android:gravity="center"
     tools:context=".TourActivity">
 
+
     <VideoView
+        android:id="@+id/videoView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/videoView2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
-
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -64,23 +70,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.267">
 
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/peixin_transparente" />
+
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AquaCare"
+            android:fontFamily="@font/montserrat_alternates"
+            android:text="Bem Vindo"
             android:textColor="@color/white"
-            android:textSize="45sp"
+            android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cuidando do seu peixe"
+            android:fontFamily="@font/montserrat_alternates"
+            android:text="AquaCare"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="45sp"
+            android:textStyle="bold"
+            android:typeface="normal" />
     </LinearLayout>
 
 

@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
     private Button btLuzMain;
+    private Button btAguaMain;
+    private Button btRacaoMain;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -51,13 +53,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.item2:{
-                        Toast.makeText(MainActivity.this, "Contact Selected", Toast.LENGTH_SHORT).show();
-                    }
-                    case R.id.item3:{
-                        Toast.makeText(MainActivity.this, "Profile Selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Contato", Toast.LENGTH_SHORT).show();
                     }
                     case R.id.item4:{
-                        Toast.makeText(MainActivity.this, "SingOut Selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Sair", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -66,12 +65,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btLuzMain = findViewById(R.id.btLuzMain2);
+        btAguaMain = findViewById(R.id.btAguaMain);
+        btRacaoMain = findViewById(R.id.btRacaoMain);
 
         btLuzMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 startActivity(new Intent(MainActivity.this, activity_luz.class));
+            }
+        });
+
+        btRacaoMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, activity_racao.class));
+            }
+        });
+
+        btAguaMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, activity_agua.class));
             }
         });
     }

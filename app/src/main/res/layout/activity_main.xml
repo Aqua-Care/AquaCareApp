@@ -10,7 +10,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#F6F5F5">
 
 
         <LinearLayout
@@ -86,31 +87,31 @@
                     android:layout_weight="1"
                     android:background="@drawable/btluz"
                     android:drawableTop="@drawable/ideia__2_"
-                    android:paddingTop="190dp"
+                    android:padding="250dp"
                     android:src="@drawable/ideia__2_"
                     android:textAlignment="center"
                     tools:ignore="ExtraText" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/button2"
+                    android:id="@+id/btAguaMain"
                     android:layout_width="350dp"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
                     android:layout_weight="1"
                     android:background="@drawable/btluz"
                     android:drawableTop="@drawable/gotas__1_"
-                    android:paddingTop="190dp"
+                    android:padding="250dp"
                     android:src="@drawable/gotas__1_" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/button3"
+                    android:id="@+id/btRacaoMain"
                     android:layout_width="320dp"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
                     android:layout_weight="1"
                     android:background="@drawable/btluz"
                     android:drawableTop="@drawable/comida_de_peixe__1_"
-                    android:paddingTop="190dp"
+                    android:padding="250dp"
                     android:src="@drawable/comida_de_peixe__1_" />
             </LinearLayout>
         </HorizontalScrollView>

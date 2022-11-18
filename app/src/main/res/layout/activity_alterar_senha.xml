@@ -11,6 +11,7 @@
         android:id="@+id/etEmailAlterarSenha"
         android:layout_width="350dp"
         android:layout_height="50dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_email"
         android:drawablePadding="12dp"
@@ -53,7 +54,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.382"
+        app:layout_constraintVertical_bias="0.392"
         app:srcCompat="@drawable/ic_pass_foreground" />
 
     <TextView
@@ -62,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="Esqueceu a senha né?"
+        android:textColor="#6D6D6C"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
@@ -75,20 +77,25 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Deixa que a gente resolve!"
+        android:textColor="#6D6D6C"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.167"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.086" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Digite seu email:"
+        android:textColor="#6D6D6C"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/etEmailAlterarSenha"
         app:layout_constraintEnd_toEndOf="parent"
