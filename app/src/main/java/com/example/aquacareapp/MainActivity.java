@@ -1,12 +1,16 @@
 package com.example.aquacareapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,24 +34,22 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.item1:{
-                        Toast.makeText(MainActivity.this, "SingOut Selected", Toast.LENGTH_SHORT).show();
-                    }
                     case R.id.item2:{
                         Toast.makeText(MainActivity.this, "Contact Selected", Toast.LENGTH_SHORT).show();
                     }
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btLuzMain = findViewById(R.id.btLuzMain);
+        btLuzMain = findViewById(R.id.btLuzMain2);
 
         btLuzMain.setOnClickListener(new View.OnClickListener() {
             @Override

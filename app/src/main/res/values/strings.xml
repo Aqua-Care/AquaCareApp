@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AquaCareApp</string>
+    <string name="app_name">AquaCare</string>
     <string name="title_activity_cadastro">CadastroActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

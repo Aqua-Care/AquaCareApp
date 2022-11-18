@@ -77,33 +77,41 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btLuzMain"
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btLuzMain2"
                     android:layout_width="320dp"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
                     android:layout_weight="1"
-                    android:text="Button"
-                    android:textColor="@color/black" />
+                    android:background="@drawable/btluz"
+                    android:drawableTop="@drawable/ideia__2_"
+                    android:paddingTop="190dp"
+                    android:src="@drawable/ideia__2_"
+                    android:textAlignment="center"
+                    tools:ignore="ExtraText" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button2"
-                    android:layout_width="320dp"
+                    android:layout_width="350dp"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
                     android:layout_weight="1"
-                    android:text="Button"
-                    android:textColor="@color/black" />
+                    android:background="@drawable/btluz"
+                    android:drawableTop="@drawable/gotas__1_"
+                    android:paddingTop="190dp"
+                    android:src="@drawable/gotas__1_" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button3"
                     android:layout_width="320dp"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
                     android:layout_weight="1"
-                    android:padding="7dp"
-                    android:text="Button"
-                    android:textColor="@color/black" />
+                    android:background="@drawable/btluz"
+                    android:drawableTop="@drawable/comida_de_peixe__1_"
+                    android:paddingTop="190dp"
+                    android:src="@drawable/comida_de_peixe__1_" />
             </LinearLayout>
         </HorizontalScrollView>
 

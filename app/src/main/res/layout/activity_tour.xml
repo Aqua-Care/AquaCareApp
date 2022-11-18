@@ -30,7 +30,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btLogarTour"
             android:layout_width="350dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:background="@drawable/btn2"
             android:clickable="true"
             android:text="Logar"
@@ -44,7 +44,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btCadastrarTour"
             android:layout_width="350dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:background="@drawable/btn2"
             android:text="Cadastrar"
             android:textColor="@color/white"
@@ -78,7 +78,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cuidamos do seu peixe"
+            android:text="Cuidando do seu peixe"
             android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>
