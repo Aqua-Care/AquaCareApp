@@ -16,11 +16,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class activity_luz extends AppCompatActivity {
 
-
-    private FirebaseAuth mAuth;
-
     private Switch switchLamp;
     private ImageView lamp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +28,6 @@ public class activity_luz extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getSupportActionBar().hide();
 
-
-        mAuth = FirebaseAuth.getInstance();
 
         lamp = findViewById(R.id.imageView4);
 

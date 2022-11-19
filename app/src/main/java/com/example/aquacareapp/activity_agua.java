@@ -20,7 +20,7 @@ public class activity_agua extends AppCompatActivity {
 
     private TextView tvTemperaturaAgua;
 
-    private DatabaseReference reference;
+    private DatabaseReference referencia;
 
 
     @Override
@@ -35,10 +35,10 @@ public class activity_agua extends AppCompatActivity {
         tvTemperaturaAgua = findViewById(R.id.tvTemperaturaAgua);
 
 
-        reference = FirebaseDatabase.getInstance().getReference("Usuarios")
+        referencia = FirebaseDatabase.getInstance().getReference("Usuarios")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Agua");
 
-        reference.addValueEventListener(new ValueEventListener() {
+        referencia.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
