@@ -28,7 +28,6 @@ public class CadastroActivity extends AppCompatActivity {
     private EditText etEmailCadastro;
     private EditText etTelefoneCadastro;
     private EditText etSenhaCadastro;
-    private EditText etRepetirSenhaCadastro;
 
     private FirebaseAuth mAuth;
 
@@ -75,7 +74,6 @@ public class CadastroActivity extends AppCompatActivity {
         String emailCadastro = etEmailCadastro.getText().toString().trim();
         String telefoneCadastro = etTelefoneCadastro.getText().toString().trim();
         String senhaCadastro = etSenhaCadastro.getText().toString().trim();
-        String repetir_senhaCadastro = etRepetirSenhaCadastro.getText().toString().trim();
 
 
         if (usuarioCadastro.isEmpty()){
@@ -113,26 +111,12 @@ public class CadastroActivity extends AppCompatActivity {
             return;
         }
 
-        if (repetir_senhaCadastro.isEmpty()){
-
-            etRepetirSenhaCadastro.setError("Preencha o campo de Repetir Senha!");
-            etRepetirSenhaCadastro.requestFocus();
-            return;
-        }
-
         if (senhaCadastro.length() < 6){
 
             etSenhaCadastro.setError("Digite uma senha com mais de 6 dígitos!");
             etSenhaCadastro.requestFocus();
             return;
         }
-
-        /*if (senhaCadastro == repetir_senhaCadastro) {
-
-            etRepetirSenhaCadastro.setError("Senhas não coincidem!");
-            etRepetirSenhaCadastro.requestFocus();
-            return;
-        }*/
 
 
         mAuth.createUserWithEmailAndPassword(emailCadastro, senhaCadastro)
