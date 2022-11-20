@@ -61,7 +61,7 @@ public class activity_racao extends AppCompatActivity {
                 Toast.makeText(activity_racao.this, "Uma porção de alimento foi oferecida", Toast.LENGTH_LONG).show();
                 referencia.child("Alimentar").setValue(0);
 
-                SimpleDateFormat formatoDataHora = new SimpleDateFormat("hh:mm:ss dd/mm/yyyy");
+                SimpleDateFormat formatoDataHora = new SimpleDateFormat("hh:mm:ss dd/M/yyyy");
                 String data = formatoDataHora.format(new Date());
                 tvDataRacao.setText("Ultima Porção: " + data);
             }
