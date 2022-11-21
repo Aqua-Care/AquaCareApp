@@ -7,24 +7,6 @@
     android:background="#F6F5F5"
     tools:context=".activity_racao">
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:background="@drawable/btluz"
-        android:padding="10dp"
-        android:text="Servindo"
-        android:textColor="@color/white"
-        android:textOff="Desligado"
-        android:textOn="Servindo"
-        android:textSize="26sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.783" />
-
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
@@ -58,7 +40,7 @@
         android:id="@+id/tvDataRacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -70,8 +52,12 @@
         android:id="@+id/btAlimentoRacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="123dp" />
+        android:text="Alimentar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.945" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
