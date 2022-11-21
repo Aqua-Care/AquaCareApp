@@ -19,6 +19,9 @@ import com.google.firebase.database.ValueEventListener;
 public class activity_agua extends AppCompatActivity {
 
     private TextView tvTemperaturaAgua;
+    private TextView tvInfoAgua;
+
+    //private String temperatura;
 
     private DatabaseReference referencia;
 
@@ -33,6 +36,7 @@ public class activity_agua extends AppCompatActivity {
 
 
         tvTemperaturaAgua = findViewById(R.id.tvTemperaturaAgua);
+        tvInfoAgua = findViewById(R.id.tvInfoAgua);
 
 
         referencia = FirebaseDatabase.getInstance().getReference("Usuarios")
@@ -45,6 +49,18 @@ public class activity_agua extends AppCompatActivity {
                 String temperatura = dataSnapshot.child("Temperatura").getValue().toString();
 
                 tvTemperaturaAgua.setText(temperatura);
+
+                int tempBase = Integer.parseInt(temperatura);
+
+                if (tempBase<10){
+
+                    tvInfoAgua.setText("Frio");
+                }
+                if (tempBase>10){
+
+                    tvInfoAgua.setText("Quente");
+                }
+
             }
 
             @Override
@@ -53,6 +69,5 @@ public class activity_agua extends AppCompatActivity {
                 Toast.makeText(activity_agua.this, "Algo de errado aconteceu!", Toast.LENGTH_LONG).show();
             }
         });
-
     }
 }
