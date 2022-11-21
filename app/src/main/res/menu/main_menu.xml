@@ -3,12 +3,12 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/item1" android:title="Sair"
-            android:icon="@drawable/ic_logout">
-        </item>
-        <item
             android:id="@+id/item2"
             android:title="Perfil" />
+        <item
+            android:id="@+id/item1"
+            android:icon="@drawable/ic_logout"
+            android:title="Sair"></item>
 
     </group>
 
