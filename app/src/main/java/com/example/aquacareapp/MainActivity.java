@@ -1,7 +1,6 @@
 package com.example.aquacareapp;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -9,8 +8,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,9 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btRacaoMain;
 
     private TextView tvUser1Main;
-    //private TextView tvUser2Main;
-    //private TextView tvTelefoneMain;
-    //private TextView tvEmailMain;
 
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -72,11 +66,15 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
 
-                    case R.id.item4:{
+                    case R.id.item1:{
 
                         FirebaseAuth.getInstance().signOut();
                         Toast.makeText(MainActivity.this, "Saiu", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(MainActivity.this, TourActivity.class));
+                    }
+                    case  R.id.item2:{
+
+                        startActivity(new Intent(MainActivity.this, PerfilActivity.class));
                     }
                 }
 
@@ -118,9 +116,6 @@ public class MainActivity extends AppCompatActivity {
         usuarioID = user.getUid();
 
         tvUser1Main = findViewById(R.id.tvUsuario1Main);
-        //tvUser2Main = findViewById(R.id.tvUsuario2Main);
-        //tvTelefoneMain = findViewById(R.id.tvTelefoneMain);
-        //tvEmailMain = findViewById(R.id.tvEmailMain);
 
         reference.child(usuarioID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
