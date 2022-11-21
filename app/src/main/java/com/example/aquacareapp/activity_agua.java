@@ -3,6 +3,7 @@ package com.example.aquacareapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -52,15 +53,23 @@ public class activity_agua extends AppCompatActivity {
 
                 int tempBase = Integer.parseInt(temperatura);
 
-                if (tempBase<10){
+                if (tempBase<=21){
 
-                    tvInfoAgua.setText("Frio");
+                    tvInfoAgua.setTextColor(Color.parseColor("#00BFFF"));
+                    tvInfoAgua.setText("Temperatura abaixo do ideal");
+                    Toast.makeText(activity_agua.this, "Regule a temperatura no aquário", Toast.LENGTH_LONG).show();
                 }
-                if (tempBase>10){
+                if (tempBase>=27){
 
-                    tvInfoAgua.setText("Quente");
+                    tvInfoAgua.setTextColor(Color.parseColor("#B22222"));
+                    tvInfoAgua.setText("Temperatura acima do ideal");
+                    Toast.makeText(activity_agua.this, "Regule a temperatura no aquário", Toast.LENGTH_LONG).show();
                 }
+                if (tempBase>21 && tempBase<27){
 
+                    tvInfoAgua.setTextColor(Color.parseColor("#7CFC00"));
+                    tvInfoAgua.setText("Temperatura ideal");
+                }
             }
 
             @Override
