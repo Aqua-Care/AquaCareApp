@@ -77,7 +77,7 @@
             android:adjustViewBounds="false"
             android:cropToPadding="false"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/peixin_transparente" />
+            app:srcCompat="@drawable/peixin_black_transparente" />
 
         <TextView
             android:id="@+id/textView3"
