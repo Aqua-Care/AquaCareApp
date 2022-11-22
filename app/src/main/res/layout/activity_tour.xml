@@ -68,22 +68,22 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.267">
+        app:layout_constraintVertical_bias="0.027">
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="150dp"
+            android:layout_width="125dp"
             android:layout_height="100dp"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:scaleType="centerCrop"
+            android:scaleType="centerInside"
             app:srcCompat="@drawable/peixin_black_transparente" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_alternates"
+            android:fontFamily="sans-serif"
             android:text="Bem Vindo"
             android:textColor="@color/white"
             android:textSize="35sp"
@@ -94,7 +94,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_alternates"
+            android:fontFamily="sans-serif"
             android:text="AquaCare"
             android:textColor="@color/white"
             android:textSize="45sp"
