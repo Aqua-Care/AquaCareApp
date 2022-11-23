@@ -3,8 +3,11 @@ package com.example.aquacareapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +25,7 @@ public class PerfilActivity extends AppCompatActivity {
     private TextView tvUserPerfil;
     private TextView tvEmailPerfil;
     private TextView tvTelefonePerfil;
+    private Button btLogoutPerfil;
 
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -38,6 +42,16 @@ public class PerfilActivity extends AppCompatActivity {
         tvUserPerfil = findViewById(R.id.tvUserPerfil);
         tvEmailPerfil = findViewById(R.id.tvEmailPerfil);
         tvTelefonePerfil = findViewById(R.id.tvTelefonePerfil);
+        btLogoutPerfil = findViewById(R.id.btLogoutPerfil);
+
+        btLogoutPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(PerfilActivity.this, TourActivity.class));
+            }
+        });
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Usuarios");

@@ -123,7 +123,7 @@
         app:layout_constraintVertical_bias="0.003" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
+        android:id="@+id/btLogoutPerfil"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:background="@drawable/btn"
