@@ -2,16 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgmain"
-    android:fitsSystemWindows="false"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -19,116 +21,69 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <TableLayout
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+            android:text="Olá,"
+            android:textSize="30sp" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btLuzMain2"
-                    android:layout_width="165dp"
-                    android:layout_height="165dp"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bgbtmain"
-                    android:drawableTop="@drawable/lampada__5_"
-                    android:elevation="2dp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:paddingTop="25dp"
-                    android:text="Luz"
-                    android:textAlignment="center"
-                    android:textSize="24sp"
-                    tools:ignore="ExtraText" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btAguaMain"
-                    android:layout_width="165dp"
-                    android:layout_height="165dp"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bgbtmain"
-                    android:drawableTop="@drawable/agua"
-                    android:elevation="2dp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:paddingTop="25dp"
-                    android:text="ÁGUA"
-                    android:textSize="24sp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btRacaoMain"
-                    android:layout_width="165dp"
-                    android:layout_height="165dp"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bgbtmain"
-                    android:drawableTop="@drawable/comida_de_peixe__2_"
-                    android:elevation="2dp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:paddingTop="25dp"
-                    android:text="RAÇÃO"
-                    android:textSize="24sp" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btPerfilMain"
-                    android:layout_width="165dp"
-                    android:layout_height="165dp"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bgbtmain"
-                    android:drawableTop="@drawable/perfil"
-                    android:elevation="2dp"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:paddingTop="25dp"
-                    android:text="PERFIL"
-                    android:textSize="24sp" />
-            </TableRow>
-
-        </TableLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout8"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tvUserMain"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            android:textSize="33sp" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hi"
-                android:textAlignment="textEnd"
-                android:textColor="@color/white"
-                android:textSize="24sp" />
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
 
-            <TextView
-                android:id="@+id/tvUsuario1Main"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="textEnd"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLuzMain"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/bgbtmain"
+                android:text="LUZ" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAguaMain"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/bgbtmain"
+                android:text="ÁGUA" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRacaoMain"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/bgbtmain"
+                android:text="RAÇÃO" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPerfilMain"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/bgbtmain"
+                android:text="PERFIL" />
+        </TableRow>
+
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

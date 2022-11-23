@@ -3,7 +3,6 @@ package com.example.aquacareapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -118,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (user.isEmailVerified()){
 
-                    startActivity(new Intent(LoginActivity.this, MainPrincipal.class));
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     }
                     else {
                         user.sendEmailVerification();
