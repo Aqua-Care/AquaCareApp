@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Usuario usuarioperfil = snapshot.getValue(Usuario.class);
 
-                if (usuarioperfil != null){
+                if (usuarioperfil != null) {
 
                     String usuario = usuarioperfil.usuario;
 
