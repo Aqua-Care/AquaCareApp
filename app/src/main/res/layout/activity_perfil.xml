@@ -23,8 +23,8 @@
 
         <ImageView
             android:id="@+id/imageView9"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             app:srcCompat="@drawable/ic_bgprof_foreground" />
 
         <TextView
@@ -108,7 +108,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btLogoutPerfil"
-        android:layout_width="350dp"
+        android:layout_width="250dp"
         android:layout_height="45dp"
         android:background="@drawable/btn"
         android:text="SAIR"
