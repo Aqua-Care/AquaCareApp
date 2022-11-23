@@ -76,7 +76,7 @@
                 android:layout_height="170dp"
                 android:layout_margin="12dp"
                 android:background="@drawable/bgbtmain"
-                android:text="RAÇÃO" />
+                android:text="RACAO" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPerfilMain"

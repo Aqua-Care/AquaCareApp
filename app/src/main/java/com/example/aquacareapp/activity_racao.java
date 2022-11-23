@@ -40,7 +40,7 @@ public class activity_racao extends AppCompatActivity {
 
         btAlimentoRacao = findViewById(R.id.btAlimentoRacao);
         tvDataRacao = findViewById(R.id.tvDataRacao);
-        btAlimentoRacao = findViewById(R.id.btVoltarRacao);
+        btVoltarRacao = findViewById(R.id.btVoltarRacao);
 
         btVoltarRacao.setOnClickListener(new View.OnClickListener() {
             @Override
