@@ -5,6 +5,7 @@ import static java.lang.Integer.parseInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -24,6 +25,7 @@ public class activity_racao extends AppCompatActivity {
 
     private Button btAlimentoRacao;
     private TextView tvDataRacao;
+    private Button btVoltarRacao;
 
     private DatabaseReference referencia;
 
@@ -38,6 +40,15 @@ public class activity_racao extends AppCompatActivity {
 
         btAlimentoRacao = findViewById(R.id.btAlimentoRacao);
         tvDataRacao = findViewById(R.id.tvDataRacao);
+        btAlimentoRacao = findViewById(R.id.btVoltarRacao);
+
+        btVoltarRacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(activity_racao.this, MainActivity.class));
+            }
+        });
 
 
         referencia = FirebaseDatabase.getInstance().getReference("Usuarios")

@@ -2,6 +2,7 @@ package com.example.aquacareapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -18,6 +19,7 @@ public class activity_luz extends AppCompatActivity {
 
     private Switch switchLamp;
     private ImageView lamp;
+    private Button btVoltarLuz;
 
 
     @Override
@@ -28,6 +30,15 @@ public class activity_luz extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getSupportActionBar().hide();
 
+        btVoltarLuz = findViewById(R.id.btVoltarLuz);
+
+        btVoltarLuz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(activity_luz.this, MainActivity.class));
+            }
+        });
 
         lamp = findViewById(R.id.imageView4);
 

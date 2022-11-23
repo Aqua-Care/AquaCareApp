@@ -3,9 +3,12 @@ package com.example.aquacareapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +24,7 @@ public class activity_agua extends AppCompatActivity {
 
     private TextView tvTemperaturaAgua;
     private TextView tvInfoAgua;
+    private Button btVoltarAgua;
 
     //private String temperatura;
 
@@ -34,6 +38,16 @@ public class activity_agua extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getSupportActionBar().hide();
+
+        btVoltarAgua = findViewById(R.id.btVoltarAgua);
+
+        btVoltarAgua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(activity_agua.this, MainActivity.class));
+            }
+        });
 
 
         tvTemperaturaAgua = findViewById(R.id.tvTemperaturaAgua);

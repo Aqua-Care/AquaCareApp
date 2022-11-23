@@ -26,6 +26,7 @@ public class PerfilActivity extends AppCompatActivity {
     private TextView tvEmailPerfil;
     private TextView tvTelefonePerfil;
     private Button btLogoutPerfil;
+    private Button btVoltarPerfil;
 
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -43,6 +44,16 @@ public class PerfilActivity extends AppCompatActivity {
         tvEmailPerfil = findViewById(R.id.tvEmailPerfil);
         tvTelefonePerfil = findViewById(R.id.tvTelefonePerfil);
         btLogoutPerfil = findViewById(R.id.btLogoutPerfil);
+        btVoltarPerfil = findViewById(R.id.btVoltarPerfil);
+
+
+        btVoltarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(PerfilActivity.this, MainActivity.class));
+            }
+        });
 
         btLogoutPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
