@@ -44,13 +44,14 @@
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
             android:text="Água"
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <TableLayout
-        android:layout_width="350dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bgprofile"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,6 +69,7 @@
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
                 android:text="TEMPERATURA:"
                 android:textColor="#6D6D6C"
                 android:textSize="30sp" />
@@ -76,6 +78,7 @@
                 android:id="@+id/tvTemperaturaAgua"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
                 android:paddingLeft="5dp"
                 android:text="X"
                 android:textColor="#6D6D6C"
@@ -86,6 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="sans-serif"
                 android:paddingLeft="5dp"
                 android:text="Cº"
                 android:textColor="#6D6D6C"
@@ -101,8 +105,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:fontFamily="sans-serif"
                 android:textColor="#6D6D6C"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
         </TableRow>
 
