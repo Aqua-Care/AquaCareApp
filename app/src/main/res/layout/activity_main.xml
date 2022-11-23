@@ -62,6 +62,7 @@
                 android:fontFamily="sans-serif-smallcaps"
                 android:paddingTop="15dp"
                 android:text="LUZ"
+                android:textColor="#6D6D6C"
                 android:textSize="24sp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -74,6 +75,7 @@
                 android:fontFamily="sans-serif-smallcaps"
                 android:paddingTop="15dp"
                 android:text="ÁGUA"
+                android:textColor="#6D6D6C"
                 android:textSize="24sp" />
         </TableRow>
 
@@ -91,6 +93,7 @@
                 android:fontFamily="sans-serif-smallcaps"
                 android:paddingTop="15dp"
                 android:text="RAÇÃO"
+                android:textColor="#6D6D6C"
                 android:textSize="24sp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -103,6 +106,7 @@
                 android:fontFamily="sans-serif-smallcaps"
                 android:paddingTop="15dp"
                 android:text="PERFIL"
+                android:textColor="#6D6D6C"
                 android:textSize="24sp" />
         </TableRow>
 

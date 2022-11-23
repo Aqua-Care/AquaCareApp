@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:text="Água"
+            android:textColor="#6D6D6C"
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
