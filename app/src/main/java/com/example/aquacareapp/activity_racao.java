@@ -2,6 +2,7 @@ package com.example.aquacareapp;
 
 import static java.lang.Integer.parseInt;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -15,8 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -51,9 +55,8 @@ public class activity_racao extends AppCompatActivity {
         });
 
 
-        referencia = FirebaseDatabase.getInstance().getReference("Usuarios")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Racao");
-
+        referencia = FirebaseDatabase.getInstance().getReference("Aquario")
+                .child("Racao");
 
 
         btAlimentoRacao.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +64,7 @@ public class activity_racao extends AppCompatActivity {
             public void onClick(View v) {
 
                 referencia.child("Alimentar").setValue(1);
+                Toast.makeText(activity_racao.this, "Uma porção de alimento foi oferecida", Toast.LENGTH_LONG).show();
 
                 try {
                     Thread.sleep(2000);
@@ -69,13 +73,41 @@ public class activity_racao extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Toast.makeText(activity_racao.this, "Uma porção de alimento foi oferecida", Toast.LENGTH_LONG).show();
                 referencia.child("Alimentar").setValue(0);
 
                 SimpleDateFormat formatoDataHora = new SimpleDateFormat("hh:mm:ss dd/M/yyyy");
                 String data = formatoDataHora.format(new Date());
-                tvDataRacao.setText("Ultima Porção: " + data);
+                referencia.child("DataRacao").setValue(data);
+
+                try {
+                    btAlimentoRacao.setClickable(false);
+                    Thread.sleep(5000);
+                }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                btAlimentoRacao.setClickable(true);
+
             }
         });
+
+
+        referencia.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String dataBd = dataSnapshot.child("DataRacao").getValue().toString();
+
+                tvDataRacao.setText("Ultima Porção: " + dataBd);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+                Toast.makeText(activity_racao.this, "Algo de errado aconteceu!", Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 }
