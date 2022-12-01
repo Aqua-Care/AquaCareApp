@@ -54,8 +54,8 @@ public class activity_agua extends AppCompatActivity {
         tvInfoAgua = findViewById(R.id.tvInfoAgua);
 
 
-        referencia = FirebaseDatabase.getInstance().getReference("Usuarios")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Agua");
+        referencia = FirebaseDatabase.getInstance().getReference("Aquario")
+                .child("Agua");
 
         referencia.addValueEventListener(new ValueEventListener() {
             @Override

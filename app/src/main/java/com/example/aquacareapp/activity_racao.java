@@ -75,11 +75,12 @@ public class activity_racao extends AppCompatActivity {
 
                 referencia.child("Alimentar").setValue(0);
 
+
                 SimpleDateFormat formatoDataHora = new SimpleDateFormat("hh:mm:ss dd/M/yyyy");
                 String data = formatoDataHora.format(new Date());
                 referencia.child("DataRacao").setValue(data);
 
-                try {
+                /*try {
                     btAlimentoRacao.setClickable(false);
                     Thread.sleep(5000);
                 }
@@ -87,11 +88,9 @@ public class activity_racao extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                btAlimentoRacao.setClickable(true);
-
+                btAlimentoRacao.setClickable(true);*/
             }
         });
-
 
         referencia.addValueEventListener(new ValueEventListener() {
             @Override

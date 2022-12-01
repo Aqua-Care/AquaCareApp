@@ -21,6 +21,8 @@ public class activity_luz extends AppCompatActivity {
     private ImageView lamp;
     private Button btVoltarLuz;
 
+    private DatabaseReference referencia;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,32 +42,34 @@ public class activity_luz extends AppCompatActivity {
             }
         });
 
-        lamp = findViewById(R.id.imageView4);
 
+        lamp = findViewById(R.id.imageView4);
         switchLamp = findViewById(R.id.switch_lamp);
+
+        referencia = FirebaseDatabase.getInstance().getReference("Aquario")
+                .child("Luz");
+
 
         switchLamp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+
                     lamp.setEnabled(true);
                     switchLamp.setText("Ligado");
 
-                    FirebaseDatabase.getInstance().getReference("Usuarios")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Luz").child("LED").setValue(1);
+                    referencia.child("LED").setValue(1);
 
-                    FirebaseDatabase.getInstance().getReference("Usuarios")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Luz").child("Estado").setValue("Ligado");
+                    referencia.child("Estado").setValue("Ligado");
                 }
                 else {
+
                     lamp.setEnabled(false);
                     switchLamp.setText("Desligado");
 
-                    FirebaseDatabase.getInstance().getReference("Usuarios")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Luz").child("LED").setValue(0);
+                    referencia.child("LED").setValue(0);
 
-                    FirebaseDatabase.getInstance().getReference("Usuarios")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Luz").child("Estado").setValue("Desligado");
+                    referencia.child("Estado").setValue("Desligado");
                 }
             }
         });
