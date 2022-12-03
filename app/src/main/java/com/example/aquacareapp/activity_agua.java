@@ -26,9 +26,13 @@ public class activity_agua extends AppCompatActivity {
     private TextView tvInfoAgua;
     private Button btVoltarAgua;
 
-    //private String temperatura;
+    private Button btBettaAgua;
+    private Button btKinguioAgua;
+    private Button btAcaraAgua;
 
-    private DatabaseReference referencia;
+
+    private DatabaseReference referenciaTemperatura;
+    private DatabaseReference referenciaPeixe;
 
 
     @Override
@@ -50,40 +54,172 @@ public class activity_agua extends AppCompatActivity {
         });
 
 
+        btBettaAgua = findViewById(R.id.btBettaAgua);
+        btKinguioAgua = findViewById(R.id.btKinguioAgua);
+        btAcaraAgua = findViewById(R.id.btAcaraAgua);
+
         tvTemperaturaAgua = findViewById(R.id.tvTemperaturaAgua);
         tvInfoAgua = findViewById(R.id.tvInfoAgua);
 
-
-        referencia = FirebaseDatabase.getInstance().getReference("Aquario")
+        referenciaTemperatura = FirebaseDatabase.getInstance().getReference("Aquario")
                 .child("Agua");
 
-        referencia.addValueEventListener(new ValueEventListener() {
+        referenciaPeixe = FirebaseDatabase.getInstance().getReference("Peixe");
+
+
+        btBettaAgua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                referenciaPeixe.child("Especie").setValue("Betta");
+
+                referenciaPeixe.child("TemperaturaMin").setValue(24);
+                referenciaPeixe.child("TemperaturaMax").setValue(28);
+
+
+                referenciaTemperatura.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        String temperatura = dataSnapshot.child("Temperatura").getValue().toString();
+
+                        tvTemperaturaAgua.setText(temperatura);
+
+                        int tempBase = Integer.parseInt(temperatura);
+
+                        if (tempBase<=24){
+
+                            tvInfoAgua.setTextColor(Color.parseColor("#00BFFF"));
+                            tvInfoAgua.setText("Temperatura abaixo do ideal");
+                            Toast.makeText(activity_agua.this, "Regule a temperatura no aquário", Toast.LENGTH_LONG).show();
+                        }
+                        if (tempBase>=28){
+
+                            tvInfoAgua.setTextColor(Color.parseColor("#B22222"));
+                            tvInfoAgua.setText("Temperatura acima do ideal");
+                            Toast.makeText(activity_agua.this, "Regule a temperatura no aquário", Toast.LENGTH_LONG).show();
+                        }
+                        if (tempBase>24 && tempBase<28){
+
+                            tvInfoAgua.setTextColor(Color.parseColor("#7CFC00"));
+                            tvInfoAgua.setText("Temperatura ideal");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                        Toast.makeText(activity_agua.this, "Algo de errado aconteceu!", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
+
+
+        btKinguioAgua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                referenciaPeixe.child("Especie").setValue("Kinguio");
+
+                referenciaPeixe.child("TemperaturaMin").setValue(18);
+                referenciaPeixe.child("TemperaturaMax").setValue(24);
+
+
+                referenciaTemperatura.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        String temperatura = dataSnapshot.child("Temperatura").getValue().toString();
+
+                        tvTemperaturaAgua.setText(temperatura);
+
+                        int tempBase = Integer.parseInt(temperatura);
+
+                        if (tempBase<=18){
+
+                            tvInfoAgua.setTextColor(Color.parseColor("#00BFFF"));
+                            tvInfoAgua.setText("Temperatura abaixo do ideal");
+                            Toast.makeText(activity_agua.this, "Regule a temperatura no aquário", Toast.LENGTH_LONG).show();
+                        }
+                        if (tempBase>=24){
+
+                            tvInfoAgua.setTextColor(Color.parseColor("#B22222"));
+                            tvInfoAgua.setText("Temperatura acima do ideal");
+                            Toast.makeText(activity_agua.this, "Regule a temperatura no aquário", Toast.LENGTH_LONG).show();
+                        }
+                        if (tempBase>18 && tempBase<24){
+
+                            tvInfoAgua.setTextColor(Color.parseColor("#7CFC00"));
+                            tvInfoAgua.setText("Temperatura ideal");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                        Toast.makeText(activity_agua.this, "Algo de errado aconteceu!", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
+
+
+        btAcaraAgua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                referenciaPeixe.child("Especie").setValue("Acara-Disco");
+
+                referenciaPeixe.child("TemperaturaMin").setValue(26);
+                referenciaPeixe.child("TemperaturaMax").setValue(30);
+
+                referenciaTemperatura.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        String temperatura = dataSnapshot.child("Temperatura").getValue().toString();
+
+                        tvTemperaturaAgua.setText(temperatura);
+
+                        int tempBase = Integer.parseInt(temperatura);
+
+                        if (tempBase<=26){
+
+                            tvInfoAgua.setTextColor(Color.parseColor("#00BFFF"));
+                            tvInfoAgua.setText("Temperatura abaixo do ideal");
+                            Toast.makeText(activity_agua.this, "Regule a temperatura no aquário", Toast.LENGTH_LONG).show();
+                        }
+                        if (tempBase>=30){
+
+                            tvInfoAgua.setTextColor(Color.parseColor("#B22222"));
+                            tvInfoAgua.setText("Temperatura acima do ideal");
+                            Toast.makeText(activity_agua.this, "Regule a temperatura no aquário", Toast.LENGTH_LONG).show();
+                        }
+                        if (tempBase>26 && tempBase<30){
+
+                            tvInfoAgua.setTextColor(Color.parseColor("#7CFC00"));
+                            tvInfoAgua.setText("Temperatura ideal");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                        Toast.makeText(activity_agua.this, "Algo de errado aconteceu!", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
+
+
+        referenciaTemperatura.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 String temperatura = dataSnapshot.child("Temperatura").getValue().toString();
 
                 tvTemperaturaAgua.setText(temperatura);
-
-                int tempBase = Integer.parseInt(temperatura);
-
-                if (tempBase<=21){
-
-                    tvInfoAgua.setTextColor(Color.parseColor("#00BFFF"));
-                    tvInfoAgua.setText("Temperatura abaixo do ideal");
-                    Toast.makeText(activity_agua.this, "Regule a temperatura no aquário", Toast.LENGTH_LONG).show();
-                }
-                if (tempBase>=27){
-
-                    tvInfoAgua.setTextColor(Color.parseColor("#B22222"));
-                    tvInfoAgua.setText("Temperatura acima do ideal");
-                    Toast.makeText(activity_agua.this, "Regule a temperatura no aquário", Toast.LENGTH_LONG).show();
-                }
-                if (tempBase>21 && tempBase<27){
-
-                    tvInfoAgua.setTextColor(Color.parseColor("#7CFC00"));
-                    tvInfoAgua.setText("Temperatura ideal");
-                }
             }
 
             @Override
