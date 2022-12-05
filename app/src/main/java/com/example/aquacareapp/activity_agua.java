@@ -25,11 +25,11 @@ public class activity_agua extends AppCompatActivity {
     private TextView tvTemperaturaAgua;
     private TextView tvInfoAgua;
     private Button btVoltarAgua;
+    private TextView tvEspeciesAgua;
 
     private Button btBettaAgua;
     private Button btKinguioAgua;
     private Button btAcaraAgua;
-
 
     private DatabaseReference referenciaTemperatura;
     private DatabaseReference referenciaPeixe;
@@ -60,6 +60,7 @@ public class activity_agua extends AppCompatActivity {
 
         tvTemperaturaAgua = findViewById(R.id.tvTemperaturaAgua);
         tvInfoAgua = findViewById(R.id.tvInfoAgua);
+        tvEspeciesAgua = findViewById(R.id.tvEspeciesAgua);
 
         referenciaTemperatura = FirebaseDatabase.getInstance().getReference("Aquario")
                 .child("Agua");
@@ -71,7 +72,7 @@ public class activity_agua extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                referenciaPeixe.child("Especie").setValue("Betta");
+                referenciaPeixe.child("Especies").setValue("Veil Tail, Delta, Halfmoon...");
 
                 referenciaPeixe.child("TemperaturaMin").setValue(24);
                 referenciaPeixe.child("TemperaturaMax").setValue(28);
@@ -83,10 +84,22 @@ public class activity_agua extends AppCompatActivity {
 
                         String temperatura = dataSnapshot.child("Temperatura").getValue().toString();
 
-                        tvTemperaturaAgua.setText(temperatura);
+                        referenciaPeixe.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot1t) {
+
+                                String especies = dataSnapshot1t.child("Especies").getValue().toString();
+                                tvEspeciesAgua.setText("Ex:  "+especies);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                Toast.makeText(activity_agua.this, "Algo de errado aconteceu!", Toast.LENGTH_LONG).show();
+                            }
+                        });
 
                         int tempBase = Integer.parseInt(temperatura);
-
 
 
                         if (tempBase<=24){
@@ -122,7 +135,7 @@ public class activity_agua extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                referenciaPeixe.child("Especie").setValue("Kinguio");
+                referenciaPeixe.child("Especies").setValue("Cabeça de Leão, Pérola, Ryukin...");
 
                 referenciaPeixe.child("TemperaturaMin").setValue(18);
                 referenciaPeixe.child("TemperaturaMax").setValue(24);
@@ -134,7 +147,20 @@ public class activity_agua extends AppCompatActivity {
 
                         String temperatura = dataSnapshot.child("Temperatura").getValue().toString();
 
-                        tvTemperaturaAgua.setText(temperatura);
+                        referenciaPeixe.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot1t) {
+
+                                String especies = dataSnapshot1t.child("Especies").getValue().toString();
+                                tvEspeciesAgua.setText("Ex:  "+especies);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                Toast.makeText(activity_agua.this, "Algo de errado aconteceu!", Toast.LENGTH_LONG).show();
+                            }
+                        });
 
                         int tempBase = Integer.parseInt(temperatura);
 
@@ -171,7 +197,7 @@ public class activity_agua extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                referenciaPeixe.child("Especie").setValue("Acara-Disco");
+                referenciaPeixe.child("Especies").setValue("Coridoras, Cascudo, Ramirezi...");
 
                 referenciaPeixe.child("TemperaturaMin").setValue(26);
                 referenciaPeixe.child("TemperaturaMax").setValue(30);
@@ -182,7 +208,20 @@ public class activity_agua extends AppCompatActivity {
 
                         String temperatura = dataSnapshot.child("Temperatura").getValue().toString();
 
-                        tvTemperaturaAgua.setText(temperatura);
+                        referenciaPeixe.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot1t) {
+
+                                String especies = dataSnapshot1t.child("Especies").getValue().toString();
+                                tvEspeciesAgua.setText("Ex:  "+especies);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                Toast.makeText(activity_agua.this, "Algo de errado aconteceu!", Toast.LENGTH_LONG).show();
+                            }
+                        });
 
                         int tempBase = Integer.parseInt(temperatura);
 

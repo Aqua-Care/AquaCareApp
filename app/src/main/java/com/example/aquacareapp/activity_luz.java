@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -54,8 +55,31 @@ public class activity_luz extends AppCompatActivity {
         referencia = FirebaseDatabase.getInstance().getReference("Aquario")
                 .child("Luz");
 
-        SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
-        switchLamp.setChecked(sharedPreferences.getBoolean("value", true));
+        referencia.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String LEDBdString = dataSnapshot.child("LED").getValue().toString();
+                int LEDBd = Integer.parseInt(LEDBdString);
+
+                if (LEDBd == 1) {
+
+                    SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
+                    switchLamp.setChecked(sharedPreferences.getBoolean("value", true));
+                }
+                if (LEDBd == 0) {
+
+                    SharedPreferences sharedPreferences = getSharedPreferences("save", MODE_PRIVATE);
+                    switchLamp.setChecked(sharedPreferences.getBoolean("value", false));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+                Toast.makeText(activity_luz.this, "Algo de errado aconteceu!", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
         switchLamp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
