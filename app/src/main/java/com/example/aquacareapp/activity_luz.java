@@ -71,6 +71,7 @@ public class activity_luz extends AppCompatActivity {
                     referencia.child("Estado").setValue("Ligado");
 
 
+
                 }
                 else {
 

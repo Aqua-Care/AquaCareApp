@@ -39,6 +39,7 @@
     </LinearLayout>
 
     <TableLayout
+        android:id="@+id/tableLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -125,4 +126,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/peixin_black_transparente" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btLogoutPerfil1"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btluz"
+        android:text="SAIR"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
+        app:layout_constraintVertical_bias="0.213" />
 </androidx.constraintlayout.widget.ConstraintLayout>

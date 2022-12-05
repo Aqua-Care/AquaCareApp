@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btAguaMain;
     private Button btRacaoMain;
     private Button btPerfilMain;
+    private Button btLogoutPerfil;
 
     private TextView tvUserMain;
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private String usuarioID;
 
     
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +49,22 @@ public class MainActivity extends AppCompatActivity {
         btAguaMain = findViewById(R.id.btAguaMain);
         btRacaoMain = findViewById(R.id.btRacaoMain);
         btPerfilMain = findViewById(R.id.btPerfilMain);
+        btLogoutPerfil = findViewById(R.id.btLogoutPerfil1);
 
         btLuzMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 startActivity(new Intent(MainActivity.this, activity_luz.class));
+            }
+        });
+
+        btLogoutPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MainActivity.this, TourActivity.class));
             }
         });
 

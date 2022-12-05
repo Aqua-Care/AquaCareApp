@@ -16,10 +16,10 @@
         android:padding="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
-        app:layout_constraintVertical_bias="0.174">
+        app:layout_constraintVertical_bias="0.25">
 
         <ImageView
             android:id="@+id/imageView9"
@@ -111,19 +111,6 @@
             android:textColor="#6D6D6C"
             android:textSize="17sp" />
     </LinearLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btLogoutPerfil"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:background="@drawable/btn"
-        android:text="SAIR"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout10" />
 
     <LinearLayout
         android:id="@+id/linearLayout8"

@@ -87,6 +87,8 @@ public class activity_agua extends AppCompatActivity {
 
                         int tempBase = Integer.parseInt(temperatura);
 
+
+
                         if (tempBase<=24){
 
                             tvInfoAgua.setTextColor(Color.parseColor("#00BFFF"));
