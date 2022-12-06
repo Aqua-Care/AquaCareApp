@@ -55,7 +55,7 @@ public class activity_luz extends AppCompatActivity {
         referencia = FirebaseDatabase.getInstance().getReference("Aquario")
                 .child("Luz");
 
-        referencia.addValueEventListener(new ValueEventListener() {
+        /*referencia.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -79,7 +79,7 @@ public class activity_luz extends AppCompatActivity {
 
                 Toast.makeText(activity_luz.this, "Algo de errado aconteceu!", Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
 
 
         switchLamp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
