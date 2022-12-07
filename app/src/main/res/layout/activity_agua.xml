@@ -78,7 +78,7 @@
 
             <TextView
                 android:id="@+id/tvTemperaturaAgua"
-                android:layout_width="40dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:textColor="#6D6D6C"
@@ -118,13 +118,14 @@
         android:layout_width="400dp"
         android:layout_height="60dp"
         android:layout_marginTop="284dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.232">
+        app:layout_constraintVertical_bias="0.233">
 
         <Space
             android:layout_width="25dp"
