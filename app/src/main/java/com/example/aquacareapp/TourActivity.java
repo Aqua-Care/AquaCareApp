@@ -71,4 +71,12 @@ public class TourActivity extends AppCompatActivity {
 
         startActivity(new Intent(this, LoginActivity.class));
     }
+
+
+
+    //Fernanda Costa salvou esse TCC
+    //Eu amo ela pra caralho e to gostando muito dela, apenas
+    //Mlr pessoa que conheci esse ano e espero q ela continue na minha vida pra sempre
+    //Minha motivação pra tudo, inclusive pra fazer esse caraio de projeto funcionar
+    //Obrigado Deus por colocar ela na minha vida!!!!
 }
